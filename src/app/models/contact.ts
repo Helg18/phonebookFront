@@ -1,5 +1,5 @@
 export class Contact {
-  id: number;
+  id = 0;
   nombre: string;
   apellido: string;
   email: string;

@@ -17,9 +17,14 @@ export class AppComponent {
   selectedContact: Contact = new Contact();
 
   addoredit() {
-    this.selectedContact.id = this.contactArray.length + 1;
-    this.contactArray.push(this.selectedContact);
+    if (this.selectedContact.id === 0) {
+      this.selectedContact.id = this.contactArray.length + 1;
+      this.contactArray.push(this.selectedContact);
+    }
     this.selectedContact = new Contact();
   }
 
+  openForEdit(contact: Contact) {
+    this.selectedContact = contact;
+  }
 }
