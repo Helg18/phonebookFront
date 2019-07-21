@@ -27,4 +27,7 @@ export class AppComponent {
   openForEdit(contact: Contact) {
     this.selectedContact = contact;
   }
+  cleareditform(){
+    this.selectedContact = new Contact();
+  }
 }
