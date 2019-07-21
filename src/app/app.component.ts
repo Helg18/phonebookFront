@@ -13,4 +13,13 @@ export class AppComponent {
     { id: 2, nombre: 'Alex', apellido: 'Galvan', email: 'pinta@gmail.com', telefono: 694580379462},
     { id: 3, nombre: 'Robert', apellido: 'Pilar', email: 'reobert@gmail.com', telefono: 3498564479460},
   ];
+
+  selectedContact: Contact = new Contact();
+
+  addoredit() {
+    this.selectedContact.id = this.contactArray.length + 1;
+    this.contactArray.push(this.selectedContact);
+    this.selectedContact = new Contact();
+  }
+
 }

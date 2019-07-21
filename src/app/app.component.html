@@ -3,7 +3,7 @@
 </nav>
 <div class="container">
   <div class="row mt-4">
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
         <div class="card-header">
             <fa-icon icon="plus"></fa-icon>
@@ -11,28 +11,28 @@
         <div class="card-body">
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre">
+            <input type="text" [(ngModel)]="selectedContact.nombre" class="form-control" id="nombre">
           </div>
           <div class="form-group">
             <label for="apellido">Apellido</label>
-            <input type="text" class="form-control" id="apellido">
+            <input type="text" [(ngModel)]="selectedContact.apellido" class="form-control" id="apellido">
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" [(ngModel)]="selectedContact.email" class="form-control" id="email">
           </div>
           <div class="form-group">
             <label for="telefono">Telefono</label>
-            <input type="email" class="form-control" id="telefono">
+            <input type="email" [(ngModel)]="selectedContact.telefono" class="form-control" id="telefono">
           </div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-danger"><fa-icon icon="save"></fa-icon> Guardar</button>
+          <button (click)="addoredit()" class="btn btn-danger"><fa-icon icon="save"></fa-icon> Guardar</button>
         </div>
       </div>
       <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
     </div>
-    <div class="col-8">
+    <div class="col-9">
       <table class="table table-light table-bordered table-striped table-hover">
         <thead>
           <td class="text-center"><strong>id</strong></td>

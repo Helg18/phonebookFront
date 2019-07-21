@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faEdit, faEraser, faSearch, faSave } from '@fortawesome/free-solid-svg-icons';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { faPlus, faEdit, faEraser, faSearch, faSave } from '@fortawesome/free-so
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
