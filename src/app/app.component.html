@@ -2,14 +2,12 @@
   <a class="navbar-brand" href="/">PhoneBook</a>
 </nav>
 <div class="container">
-  <div class="row">
-    <div class="col-8">
-      <ul class="list-group">
-
-      </ul>
-
-      <div class="card mt-4">
-        <div class="card-header">Agregar nuevo contacto</div>
+  <div class="row mt-4">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+            <fa-icon icon="plus"></fa-icon>
+          Agregar nuevo contacto</div>
         <div class="card-body">
           <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -29,12 +27,39 @@
           </div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-danger">Guardar</button>
+          <button class="btn btn-danger"><fa-icon icon="save"></fa-icon> Guardar</button>
         </div>
       </div>
-    </div>
-    <div class="col-4">
       <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    </div>
+    <div class="col-8">
+      <table class="table table-light table-bordered table-striped table-hover">
+        <thead>
+          <td class="text-center"><strong>id</strong></td>
+          <td class="text-center"><strong>Nombre</strong></td>
+          <td class="text-center"><strong>Apellido</strong></td>
+          <td class="text-center"><strong>Email</strong></td>
+          <td class="text-center"><strong>Telefono</strong></td>
+          <td class="text-center"><strong>Opciones</strong></td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of contactArray">
+            <td>{{contact.id}}</td>
+            <td>{{contact.nombre}}</td>
+            <td>{{contact.apellido}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.telefono}}</td>
+            <td>
+              <button class="btn btn-success">
+                <fa-icon icon="search"></fa-icon></button>
+              <button class="btn btn-warning">
+                <fa-icon icon="edit"></fa-icon></button>
+              <button class="btn btn-danger">
+                <fa-icon icon="eraser"></fa-icon></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
