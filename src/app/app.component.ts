@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
 import { Contact } from './models/contact';
+
+import { ContactService } from './services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,27 @@ import { Contact } from './models/contact';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contactArray: Contact[] = [
-    { id: 1, nombre: 'Henry', apellido: 'Esteban', email: 'pongo@gmail.com', telefono: 542659850215},
-    { id: 2, nombre: 'Alex', apellido: 'Galvan', email: 'pinta@gmail.com', telefono: 694580379462},
-    { id: 3, nombre: 'Robert', apellido: 'Pilar', email: 'reobert@gmail.com', telefono: 3498564479460},
-  ];
+  constructor(private contactService: ContactService) {
+    this.getAllContacts();
+  }
+
+  contactArray: Contact[] = [];
 
   selectedContact: Contact = new Contact();
 
+  getAllContacts() {
+    this.contactArray = [];
+    this.contactService.getAll().subscribe(res => {
+      res.map(x => {
+        this.contactArray.push(x);
+      });
+    });
+  }
+
   addoredit() {
-    if (this.selectedContact.id === 0) {
-      this.selectedContact.id = this.contactArray.length + 1;
-      this.contactArray.push(this.selectedContact);
-    }
+    // this.selectedContact.id = this.contactArray.length + 1;
+    this.contactService.create(this.selectedContact);
+    this.getAllContacts();
     this.selectedContact = new Contact();
   }
 
@@ -28,7 +37,7 @@ export class AppComponent {
     this.selectedContact = contact;
   }
 
-  cleareditform(){
+  cleareditform() {
     this.selectedContact = new Contact();
   }
 
