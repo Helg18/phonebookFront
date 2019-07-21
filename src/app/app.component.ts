@@ -27,7 +27,14 @@ export class AppComponent {
   openForEdit(contact: Contact) {
     this.selectedContact = contact;
   }
+
   cleareditform(){
     this.selectedContact = new Contact();
+  }
+
+  deleteContact(contact: Contact) {
+    if ( confirm('Do you really sure to delete it?') ) {
+      this.contactArray = this.contactArray.filter(x => x !== contact );
+    }
   }
 }
