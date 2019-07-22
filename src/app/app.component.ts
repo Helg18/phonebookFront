@@ -34,10 +34,7 @@ export class AppComponent {
       });
     } else {
       this.contactService.update(this.selectedContact).subscribe(res => {
-        this.contactArray = [];
-        res.map(x => {
-          this.contactArray.push(x);
-        });
+        this.getAllContacts();
       });
     }
     this.selectedContact = new Contact();
