@@ -33,12 +33,11 @@ export class AppComponent {
         this.getAllContacts();
       });
     } else {
-      this.contactService.update(this.selectedContact).subscribe(res => {
+      this.contactService.update(this.selectedContact).subscribe(() => {
         this.getAllContacts();
       });
     }
     this.selectedContact = new Contact();
-    this.getAllContacts();
   }
 
   openForEdit(contact: Contact) {
@@ -51,7 +50,9 @@ export class AppComponent {
 
   deleteContact(contact: Contact) {
     if ( confirm('Do you really sure to delete it?') ) {
-      this.contactArray = this.contactArray.filter(x => x !== contact );
+      this.contactService.delete(contact.id).subscribe(() => {
+        this.getAllContacts();
+      });
     }
   }
 }

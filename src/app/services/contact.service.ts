@@ -35,4 +35,7 @@ export class ContactService {
         }
       });
   }
+  delete(contact) {
+    return this.http.delete(this.URL + '/delete/' + contact);
+  }
 }
