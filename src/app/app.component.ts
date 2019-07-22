@@ -27,9 +27,16 @@ export class AppComponent {
   }
 
   addoredit() {
-    // this.selectedContact.id = this.contactArray.length + 1;
-    this.contactService.create(this.selectedContact);
-    this.getAllContacts();
+    if (this.selectedContact.id > 0) {
+      this.contactService.create(this.selectedContact).subscribe(res => {
+        this.contactArray = [];
+        res.map(x => {
+          this.contactArray.push(x);
+        });
+      });
+    } else {
+      // TODO: Update a existing contact.
+    }
     this.selectedContact = new Contact();
   }
 
