@@ -27,17 +27,21 @@ export class AppComponent {
   }
 
   addoredit() {
-    if (this.selectedContact.id > 0) {
-      this.contactService.create(this.selectedContact).subscribe(res => {
+    this.contactArray = [];
+    if (this.selectedContact.id <= 0) {
+      this.contactService.create(this.selectedContact).subscribe(() => {
+        this.getAllContacts();
+      });
+    } else {
+      this.contactService.update(this.selectedContact).subscribe(res => {
         this.contactArray = [];
         res.map(x => {
           this.contactArray.push(x);
         });
       });
-    } else {
-      // TODO: Update a existing contact.
     }
     this.selectedContact = new Contact();
+    this.getAllContacts();
   }
 
   openForEdit(contact: Contact) {

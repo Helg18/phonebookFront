@@ -16,16 +16,26 @@ export class ContactService {
   }
 
   create(contact) {
-    // post(url: string, body: any, options: { headers?: HttpHeaders | { [hea
-    this.http.post(this.URL + '/create',
+    return this.http.post(this.URL + '/create',
       JSON.stringify(contact),
       {
         headers: {
           'Content-Type': 'application/json'
         }
       }
-    ).subscribe(res => {
-      console.log(res);
+    );
+    // return this.getAll();
+  }
+
+  update(contact) {
+    this.http.put(this.URL + '/update/' + contact.id,
+      JSON.stringify(contact),
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).subscribe(res => {
+      // console.log('Update a contact');
     });
     return this.getAll();
   }
